@@ -1,6 +1,6 @@
-# Aragon Protocol Factory
+# Antfarm Protocol Factory
 
-This reposity contains a factory contract and a set of scripts to deploy OSx and the core Aragon plugins to a wide range of EVM compatible networks.
+This reposity contains a factory contract and a set of scripts to deploy OSx and the core Antfarm plugins to a wide range of EVM compatible networks.
 
 ## Get Started
 
@@ -166,9 +166,9 @@ just verify       # retry the verification of the latest broadcast (if needed)
 - [ ] The rest of members confirm that the values are correct
 - [ ] I have transferred the remaining funds of the deployment wallet to the address that originally funded it
   - `just refund`
-- [ ] I have cloned https://github.com/aragon/diffyscan-workspace/
+- [ ] I have cloned https://github.com/antfarm-official/diffyscan-workspace/
   - [ ] I have copied the deployed addresses to a new config file for the network
-  - [ ] I have run the source code verification and the code matches the [audited commits](https://github.com/aragon/osx/tree/main/audits)
+  - [ ] I have run the source code verification and the code matches the [audited commits](https://github.com/antfarm-official/osx/tree/main/audits)
 
 This concludes the deployment ceremony.
 
@@ -176,9 +176,9 @@ This concludes the deployment ceremony.
 
 This is optional if you are deploying to a custom network.
 
-- [ ] I have followed [these instructions](https://github.com/aragon/osx-commons/tree/main/configs#generating-the-json-files) to generate the JSON file with the addresses for the new network
+- [ ] I have followed [these instructions](https://github.com/antfarm-official/osx-commons/tree/main/configs#generating-the-json-files) to generate the JSON file with the addresses for the new network
   - [ ] If needed, I have added the new network settings
-- [ ] I have added `artifacts/address-book-<network>-<timestamp>.json` to [artifacts-hub](https://github.com/aragon/artifacts-hub): it is already in its `AddressBook` format (OSx, management DAO, ENS, every plugin repo and version, condition factory) and becomes `addresses/<chainId>.json` for a new chain
+- [ ] I have added `artifacts/address-book-<network>-<timestamp>.json` to [artifacts-hub](https://github.com/antfarm-official/artifacts-hub): it is already in its `AddressBook` format (OSx, management DAO, ENS, every plugin repo and version, condition factory) and becomes `addresses/<chainId>.json` for a new chain
 - [ ] I have created a pull request with the updated addresses files on every repository
 
 ## Using the Factory for local tests
@@ -190,23 +190,23 @@ If you are building an OSx plugin and need a fresh OSx deployment on your test s
 Add the Protocol Factory as a dependency:
 
 ```sh
-forge install aragon/protocol-factory
+forge install antfarm-official/protocol-document
 ```
 
-Given that this repository already depends on OSx, you may want to replace the existing `remappings.txt` entry and use the OSx path provided by `protocol-factory` itself.
+Given that this repository already depends on OSx, you may want to replace the existing `remappings.txt` entry and use the OSx path provided by `protocol-document` itself.
 
 ```diff
--@aragon/osx/=lib/osx/src/
+-@antfarm-official/osx/=lib/osx/src/
 
-+@aragon/protocol-factory/=lib/protocol-factory/
-+@aragon/osx/=lib/protocol-factory/lib/osx/src/
++@antfarm-official/protocol-document/=lib/protocol-document/
++@antfarm-official/osx/=lib/protocol-document/lib/osx/src/
 ```
 
 #### The simplest example
 
 ```solidity
 // Adjust the path according to your remappings.txt file
-import {ProtocolFactoryBuilder} from "@aragon/protocol-factory/test/helpers/ProtocolFactoryBuilder.sol";
+import {ProtocolFactoryBuilder} from "@antfarm-official/protocol-document/test/helpers/ProtocolFactoryBuilder.sol";
 
 // Using the default parameters
 ProtocolFactory factory = new ProtocolFactoryBuilder().build();
@@ -221,7 +221,7 @@ console.log("DaoFactory", deployment.daoFactory);
 
 ```solidity
 // Adjust the path according to your remappings.txt file
-import {ProtocolFactoryBuilder} from "@aragon/protocol-factory/test/helpers/ProtocolFactoryBuilder.sol";
+import {ProtocolFactoryBuilder} from "@antfarm-official/protocol-document/test/helpers/ProtocolFactoryBuilder.sol";
 
 ProtocolFactoryBuilder builder = new ProtocolFactoryBuilder();
 
@@ -363,6 +363,6 @@ factory.deployOnce();
 ## Security
 If you believe you've found a security issue, we encourage you to notify us. We welcome working with you to resolve the issue promptly.
 
-Security Contact Email: sirt@aragon.org
+Security Contact Email: contact@theantfarm.tech
 
 Please do not use the issue tracker to report security issues.
