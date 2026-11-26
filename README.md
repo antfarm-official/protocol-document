@@ -1,6 +1,6 @@
-# Antfarm Protocol Factory
+# Antfarm Protocol Document
 
-This reposity contains a factory contract and a set of scripts to deploy OSx and the core Antfarm plugins to a wide range of EVM compatible networks.
+This reposity contains a contract and a set of scripts to deploy OSx and the core Antfarm plugins to a wide range of EVM compatible networks.
 
 ## Get Started
 
